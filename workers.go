@@ -55,7 +55,7 @@ func waitForWorkers(workers *sync.WaitGroup, doneChan chan<- int) {
 }
 
 func collectDones(doneChan <-chan int) []int {
-	dones := make([]int, len(doneChan))
+	dones := make([]int, 0, len(doneChan))
 	for done := range doneChan {
 		dones = append(dones, done)
 	}
